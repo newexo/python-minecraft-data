@@ -2,12 +2,8 @@
 name = "minecraft-data"
 version = "3.20.1"
 description = "Provide easy access to minecraft data in python"
-authors = [
-    {name = "Vito Gamberini", email = "vito@gamberini.email"},
-]
-maintainers = [
-    {name = "Reuben Brasher", email = "rkbrasher@gmail.com"},
-]
+authors = ["Vito Gamberini <vito@gamberini.email>"]
+maintainers = ["Reuben Brasher <rkbrasher@gmail.com>"]
 license = "MIT"
 readme = "README.rst"
 repository = "https://github.com/Ugo75b/python-minecraft-data"
@@ -16,6 +12,7 @@ include = ["minecraft_data/data/data/*"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+pooch = "^1.9.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.1"

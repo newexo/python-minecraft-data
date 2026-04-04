@@ -2,8 +2,6 @@
 
 import sys
 
-import pytest
-
 import minecraft_data
 
 
@@ -16,14 +14,14 @@ class TestModuleStructure:
 
     def test_module_has_common_method(self):
         """The minecraft_data module should have a common method."""
-        assert hasattr(minecraft_data, 'common')
+        assert hasattr(minecraft_data, "common")
         assert callable(minecraft_data.common)
 
     def test_module_is_in_sys_modules(self):
         """The minecraft_data module should be in sys.modules."""
-        assert 'minecraft_data' in sys.modules
+        assert "minecraft_data" in sys.modules
 
     def test_custom_module_class(self):
         """The minecraft_data module should use a custom module class."""
         # The __class__ should be named 'mod'
-        assert minecraft_data.__class__.__name__ == 'mod'
+        assert minecraft_data.__class__.__name__ == "mod"
