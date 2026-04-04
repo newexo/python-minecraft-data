@@ -5,8 +5,8 @@ description = "Provide easy access to minecraft data in python"
 authors = ["Vito Gamberini <vito@gamberini.email>"]
 maintainers = ["Reuben Brasher <rkbrasher@gmail.com>"]
 license = "MIT"
-readme = "README.rst"
-repository = "https://github.com/Ugo75b/python-minecraft-data"
+readme = "README.md"
+repository = "https://github.com/newexo/python-minecraft-data"
 packages = [{include = "minecraft_data"}]
 include = ["minecraft_data/data/data/*"]
 
