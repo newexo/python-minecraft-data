@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "minecraft-data"
+version = "3.20.1"
+description = "Provide easy access to minecraft data in python"
+authors = ["Vito Gamberini <vito@gamberini.email>"]
+maintainers = ["Reuben Brasher <rkbrasher@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/newexo/python-minecraft-data"
+packages = [{include = "minecraft_data"}]
+include = ["minecraft_data/data/data/*"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pooch = "^1.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.1"
+black = "^26.3.1"
+flake8 = "^7.3.0"
+coverage = "^7.12.0"
+pytest-cov = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
