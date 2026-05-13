@@ -7,19 +7,19 @@ import pooch
 # Supported Minecraft versions
 SUPPORTED_VERSIONS = ["1.20.6", "1.21.6"]
 
-# SHA256 hash for the master branch tarball from GitHub
-# This contains all Minecraft versions including 1.20.6 and 1.21.6
+# SHA256 hash for the 3.110.1 release tarball from GitHub
+# This is a stable, immutable release that includes all supported Minecraft versions
 MINECRAFT_DATA_HASH = (
-    "sha256:bb05d6355b7383b569d7ef7413a13946e78521f2a05986c8c6236bbff53a7d3c"
+    "sha256:375a1c0267f395d0a04c01873ca9bae70e23e6bc32b9057d2893ce0a77d86a4a"
 )
 
 # Create Pooch instance for lazy data downloads
 DATA_FETCHER = pooch.create(
     path=pooch.os_cache("minecraft_data"),
-    base_url="https://github.com/PrismarineJS/minecraft-data/archive/",
+    base_url="https://github.com/PrismarineJS/minecraft-data/archive/refs/tags/",
     env="MINECRAFT_DATA_DIR",  # Allow override with environment variable
     registry={
-        "master.tar.gz": MINECRAFT_DATA_HASH,
+        "3.110.1.tar.gz": MINECRAFT_DATA_HASH,
     },
 )
 
@@ -27,8 +27,8 @@ DATA_FETCHER = pooch.create(
 def _extract_tarball():
     """Extract the minecraft-data tarball if not already extracted."""
     cache_dir = os.environ.get("MINECRAFT_DATA_DIR", pooch.os_cache("minecraft_data"))
-    tarball_path = os.path.join(cache_dir, "master.tar.gz")
-    extract_path = os.path.join(cache_dir, "minecraft-data-master")
+    tarball_path = os.path.join(cache_dir, "3.110.1.tar.gz")
+    extract_path = os.path.join(cache_dir, "minecraft-data-3.110.1")
 
     # If already extracted, return the path
     if os.path.isdir(extract_path):
@@ -36,7 +36,7 @@ def _extract_tarball():
 
     # Download if not present
     if not os.path.exists(tarball_path):
-        DATA_FETCHER.fetch("master.tar.gz")
+        DATA_FETCHER.fetch("3.110.1.tar.gz")
 
     # Extract tarball
     with tarfile.open(tarball_path, "r:gz") as tar:
