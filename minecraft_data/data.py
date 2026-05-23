@@ -5,7 +5,7 @@ import tarfile
 import pooch
 
 # Supported Minecraft versions
-SUPPORTED_VERSIONS = ["1.20.6", "1.21.6"]
+SUPPORTED_VERSIONS = ["1.20.5", "1.21.6"]
 
 # SHA256 hash for the 3.110.1 release tarball from GitHub
 # This is a stable, immutable release that includes all supported Minecraft versions
@@ -49,7 +49,7 @@ def get_data_path(version: str) -> str:
     """Get the path to the minecraft-data directory for a given version.
 
     Args:
-        version: Minecraft version (e.g., '1.20.6')
+        version: Minecraft version (e.g., '1.21.6')
 
     Returns:
         Path to the data directory for use with tools.convert()

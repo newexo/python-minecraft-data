@@ -41,10 +41,21 @@ if hasattr(mc_data, 'items'):
 ## Supported Versions
 
 Currently supported for detailed testing:
-- `1.20.6`
+- `1.20.5`
 - `1.21.6`
 
 Other versions in the [minecraft-data](https://github.com/PrismarineJS/minecraft-data) repository are accessible but may have incomplete data.
+
+### Upstream data availability: full vs. stub versions
+
+The [PrismarineJS minecraft-data](https://github.com/PrismarineJS/minecraft-data) repository does not ship full gameplay data for every Minecraft version. Some patch releases are published as **stubs** — directories containing only `version.json` (and occasionally `dataPaths.json`) — because their game data is unchanged from the previous full-data release. The stub still exists so that `version.json` can carry the correct protocol version number, but `items.json`, `blocks.json`, `recipes.json`, etc. are absent.
+
+For the 1.20 and 1.21 series, the versions that ship **full data** (item/block/recipe/language/etc. JSON files) are:
+
+- **1.20 series:** `1.20`, `1.20.2`, `1.20.3`, `1.20.5`
+- **1.21 series:** `1.21.1`, `1.21.3`, `1.21.4`, `1.21.5`, `1.21.6`, `1.21.8`, `1.21.9`, `1.21.11`
+
+**Stub-only versions** (e.g. `1.20.1`, `1.20.4`, `1.20.6`, `1.21`) are still accessible via `get_data_path()` but only expose `version.json`. If you need full gameplay data for one of those versions, use the nearest preceding full-data version from the list above.
 
 ## Data Source
 

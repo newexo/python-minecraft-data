@@ -2,7 +2,7 @@ import os
 import sys
 
 from minecraft_data.tools import convert, commondata
-from minecraft_data.data import get_data_path
+from minecraft_data.data import SUPPORTED_VERSIONS, get_data_path
 
 
 class mod(sys.modules[__name__].__class__):
@@ -17,8 +17,8 @@ class mod(sys.modules[__name__].__class__):
         return type(version, (object,), convert(_dir, version, edition))
 
     def common(self, edition="pc"):
-        # For common data, use bundled data
-        _dir = os.path.join(os.path.dirname(__file__), "data/data/")
+        # Common data is version-independent; reuse any supported version's data root
+        _dir = get_data_path(SUPPORTED_VERSIONS[0])
         return type("common", (object,), commondata(_dir, edition))
 
 

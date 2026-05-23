@@ -24,14 +24,10 @@ class TestModuleIntegration:
         assert version_data is not None
 
     def test_common_data(self):
-        """Test loading common data if available."""
-        try:
-            common = minecraft_data.common()
-            assert common is not None
-            assert isinstance(common, type)
-        except FileNotFoundError:
-            # Common data may not be available in bundled data
-            pytest.skip("Common data not available in bundled data")
+        """Test loading common data."""
+        common = minecraft_data.common()
+        assert common is not None
+        assert isinstance(common, type)
 
     def test_unsupported_version_fallback(self):
         """Test that unsupported versions attempt fallback to bundled data."""
