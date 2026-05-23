@@ -42,7 +42,7 @@ class TestDataLoading:
             data.get_data_path("99.99.99")
             pytest.fail("Should raise ValueError")
         except ValueError as e:
-            assert "1.20.6" in str(e)
+            assert "1.20.5" in str(e)
             assert "1.21.6" in str(e)
 
     def test_pooch_base_url_configured(self):
